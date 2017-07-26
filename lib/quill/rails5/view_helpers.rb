@@ -37,7 +37,7 @@ module Quill
 
       def quill_field(form, name, editor_id = 'editor')
         field_id = [form.object_name, name].join('_')
-        form.hidden_field(name) +
+        form.hidden_field(name, :id => field_id) +
         javascript_tag("  $(document).on('turbolinks:load', function() {
           $('form##{form.options[:html][:id]}').submit(function() {
             $('##{field_id}').val($('##{editor_id} .ql-editor').html());
